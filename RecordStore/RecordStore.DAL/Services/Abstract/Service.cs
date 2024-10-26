@@ -78,7 +78,6 @@ namespace RecordStore.DAL.Services.Abstract
         }
 
         public TModel Get(int id)
-
         {
 
             TEntity entity = _repository.Get(id);
@@ -90,7 +89,6 @@ namespace RecordStore.DAL.Services.Abstract
         }
 
         public ICollection<TModel> GetAll()
-
         {
 
             ICollection<TEntity> entities = _repository.GetAll();

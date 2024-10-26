@@ -1,4 +1,5 @@
-﻿using RecordStore.DAL.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using RecordStore.DAL.Context;
 using RecordStore.DAL.Repositories.Abstract;
 using RecordStore.DAL.Repositories.Concrete;
 using RecordStore.DAL.Services.Concrete;
@@ -12,17 +13,13 @@ namespace RecordStore.DAL.UnitOfWorks
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private RecordStoreDbContext _dbContext;
+        private DbContext _dbContext;
         private bool disposed = false;
 
-        public RecordStoreDbContext DbContext { get; private set; }
-
-
-        public UnitOfWork(RecordStoreDbContext dbContext)
+        public UnitOfWork(DbContext dbContext)
         {
            _dbContext = dbContext;
-            DbContext = dbContext;
-
+           
             Users = new UserRepository(_dbContext);
             Albums = new AlbumRepository(_dbContext);
         }

@@ -8,13 +8,10 @@ using System.Threading.Tasks;
 
 namespace RecordStore.DAL.UnitOfWorks
 {
-    internal interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork : IDisposable
     {
-        RecordStoreDbContext DbContext { get; }
-
         IUserRepository Users { get; }
         IAlbumRepository Albums { get; }
-
         int Complete();
 
     }
