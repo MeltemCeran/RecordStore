@@ -13,7 +13,7 @@ namespace RecordStore.DAL.Entities.Concrete
         public string Singers { get; set; }
         public DateOnly PublishedDate { get; set; }
         public double Price { get; set; }
-        public double Discount { get; set; }
+        public double? Discount { get; set; }
         public bool IsActive { get; set; }
     }
 }
