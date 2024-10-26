@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordStore.DAL", "RecordStore.DAL\RecordStore.DAL.csproj", "{DD021B6A-F5ED-443C-B139-DBB481B7807B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecordStore.DAL", "RecordStore.DAL\RecordStore.DAL.csproj", "{DD021B6A-F5ED-443C-B139-DBB481B7807B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3-DAL", "3-DAL", "{BED560CA-F1A9-436B-9E4B-35C3D6F340C2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2-BLL", "2-BLL", "{D6964A00-920D-49ED-99CF-2105CEF80A59}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordStore.BLL", "RecordStore.BLL\RecordStore.BLL.csproj", "{B4A8F6F0-A8A8-408C-8158-3F7F0A6003D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecordStore.BLL", "RecordStore.BLL\RecordStore.BLL.csproj", "{B4A8F6F0-A8A8-408C-8158-3F7F0A6003D1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1-PL", "1-PL", "{592C6B08-F760-478B-8DC8-00CC6313F8E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordStore.PL", "RecordStore.PL\RecordStore.PL.csproj", "{F9322468-2CDA-454E-BC17-9C7EC5D549ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecordStore.PL", "RecordStore.PL\RecordStore.PL.csproj", "{F9322468-2CDA-454E-BC17-9C7EC5D549ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
