@@ -20,6 +20,38 @@ namespace RecordStore.DAL.Repositories.Concrete
             _context = dbContext;
         }
 
+        public ICollection<Album> InActiveAlbums()
+        {
+            IQueryable<Album> query = _entities.Select(a => new Album { Name = a.Name, Singers = a.Singers, IsActive = a.IsActive })
+                .Where(a => !a.IsActive);
+            return query.ToList();
+        }
+
+
+        public ICollection<Album> ActiveAlbums()
+        {
+            IQueryable<Album> query = _entities.Select(a => new Album { Name = a.Name, Singers = a.Singers, IsActive = a.IsActive })
+                .Where(a => a.IsActive);
+            return query.ToList();
+        }
+
+        public ICollection<Album> LastAddedTenAlbums()
+        {
+            IQueryable<Album> query = _entities.OrderByDescending(a => a.Id).Take(10)
+                .Select(a => new Album { Id = a.Id, Name = a.Name, Singers = a.Singers });
+
+            return query.ToList();
+
+        }
+        public ICollection<Album> DiscountByAlbum()
+        {
+            IQueryable<Album> query = _entities.Select(a => new Album { Discount = a.Discount, Name = a.Name, Singers = a.Singers })
+                .Where(a => a.Discount != null)
+                .OrderBy(a => a.Discount);
+
+            return query.ToList();
+
+        }
         protected virtual void Dispose(bool disposing)
         {
             if (!this.disposed)

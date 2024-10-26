@@ -9,5 +9,9 @@ namespace RecordStore.DAL.Repositories.Abstract
 {
     public interface IAlbumRepository:IRepository<Album>,IDisposable
     {
+        public ICollection<Album> InActiveAlbums();
+        public ICollection<Album> ActiveAlbums();
+        public ICollection<Album> LastAddedTenAlbums();
+        public ICollection<Album> DiscountByAlbum();
     }
 }

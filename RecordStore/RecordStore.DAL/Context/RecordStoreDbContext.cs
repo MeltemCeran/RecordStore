@@ -16,8 +16,8 @@ namespace RecordStore.DAL.Context
         public DbSet<Album> Albums { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string[] server = { "DESKTOP-QJIAQ3L", "LAPTOP-3HH2461E", "DESKTOP-M590E2O\\SAMETLESSON" };
-            string connectionString = $"Data Source={server[0]};Database=RecordStoreDb;Trusted_Connection=True;Encrypt=No";
+            string[] server = { "DESKTOP-QJIAQ3L", "LAPTOP-3HH2461E", "DESKTOP-M590E2O\\SAMETLESSON" , "DILA\\AYDANPERSONALSVR" };
+            string connectionString = $"Data Source={server[3]};Database=RecordStoreDb;Trusted_Connection=True;Encrypt=No";
             optionsBuilder.UseSqlServer(connectionString);
         }
 
