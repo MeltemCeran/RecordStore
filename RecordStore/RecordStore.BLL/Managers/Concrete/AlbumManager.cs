@@ -1,6 +1,7 @@
 ﻿using RecordStore.BLL.Managers.Abstract;
 using RecordStore.BLL.Models.Concrete;
 using RecordStore.DAL.Entities.Concrete;
+using RecordStore.DAL.Services.Abstract;
 using RecordStore.DAL.Services.Concrete;
 using RecordStore.DAL.UnitOfWorks;
 using System;
@@ -15,6 +16,9 @@ namespace RecordStore.BLL.Managers.Concrete
     {
         private readonly IUnitOfWork _unitOfWork;
 
+
+        //Buraya Constructor gelmeli mi?
+
         public ICollection<Album> GetInActiveAlbums()
         {
             return _unitOfWork.Albums.InActiveAlbums();
@@ -23,7 +27,6 @@ namespace RecordStore.BLL.Managers.Concrete
         public ICollection<Album> GetActiveAlbums()
         {
             return _unitOfWork.Albums.ActiveAlbums();
-
         }
 
         public ICollection<Album> GetLastAddedTenAlbums()

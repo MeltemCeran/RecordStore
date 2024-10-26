@@ -29,6 +29,7 @@ namespace RecordStore.DAL.Repositories.Concrete
 
 
         public ICollection<Album> ActiveAlbums()
+
         {
             IQueryable<Album> query = _entities.Select(a => new Album { Name = a.Name, Singers = a.Singers, IsActive = a.IsActive })
                 .Where(a => a.IsActive);

@@ -31,6 +31,7 @@ namespace RecordStore.BLL.Managers.Abstract
 
         public void Delete(TModel model)
         {
+            
             _service.Delete(model);
         }
 
@@ -69,14 +70,9 @@ namespace RecordStore.BLL.Managers.Abstract
             GC.SuppressFinalize(this);
         }
 
-        public TModel GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public int Save()
         {
-            throw new NotImplementedException();
+            return _service.Save();
         }
     }
 }

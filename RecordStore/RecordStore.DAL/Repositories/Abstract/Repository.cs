@@ -32,14 +32,15 @@ namespace RecordStore.DAL.Repositories.Abstract
 
         public void Delete(TEntity entity)
         {
-            _entities.Remove(entity);
+            entity.DeletedDate = DateTime.Now;
+            _entities.Update(entity);
         }
 
         public void Delete(int id)
         {
             TEntity? entity = _entities.AsNoTracking().Where(s => s.Id == id).ToList().SingleOrDefault();
 
-            _entities.Remove(entity);
+            Delete(entity);
         }
 
         public TEntity Get(int id)

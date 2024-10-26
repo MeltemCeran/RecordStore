@@ -31,19 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlbumPage));
             dgvAlbums = new DataGridView();
             lblUserName = new Label();
-            txtUserName = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            txtAlbumName = new TextBox();
+            lblArtist = new Label();
+            lblPublishedDate = new Label();
+            lblPrice = new Label();
+            lblDiscount = new Label();
+            txtArtist = new TextBox();
+            txtPrice = new TextBox();
+            txtDiscount = new TextBox();
+            btnAdd = new Button();
+            btnDelete = new Button();
+            btnUpdate = new Button();
+            btnReports = new Button();
+            dtpPublishedDate = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dgvAlbums).BeginInit();
             SuspendLayout();
             // 
@@ -52,8 +52,10 @@
             dgvAlbums.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvAlbums.Location = new Point(289, 228);
             dgvAlbums.Name = "dgvAlbums";
+            dgvAlbums.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvAlbums.Size = new Size(499, 168);
             dgvAlbums.TabIndex = 0;
+            dgvAlbums.CellClick += dgvAlbums_CellClick;
             // 
             // lblUserName
             // 
@@ -66,120 +68,124 @@
             lblUserName.TabIndex = 1;
             lblUserName.Text = "Album Name";
             // 
-            // txtUserName
+            // txtAlbumName
             // 
-            txtUserName.Location = new Point(289, 71);
-            txtUserName.Name = "txtUserName";
-            txtUserName.Size = new Size(209, 23);
-            txtUserName.TabIndex = 3;
+            txtAlbumName.Location = new Point(289, 71);
+            txtAlbumName.Name = "txtAlbumName";
+            txtAlbumName.Size = new Size(209, 23);
+            txtAlbumName.TabIndex = 3;
             // 
-            // label1
+            // lblArtist
             // 
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label1.ForeColor = Color.FromArgb(64, 0, 0);
-            label1.Location = new Point(289, 108);
-            label1.Name = "label1";
-            label1.Size = new Size(209, 23);
-            label1.TabIndex = 4;
-            label1.Text = "Artist";
+            lblArtist.BackColor = Color.Transparent;
+            lblArtist.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            lblArtist.ForeColor = Color.FromArgb(64, 0, 0);
+            lblArtist.Location = new Point(289, 108);
+            lblArtist.Name = "lblArtist";
+            lblArtist.Size = new Size(209, 23);
+            lblArtist.TabIndex = 4;
+            lblArtist.Text = "Artist";
             // 
-            // label2
+            // lblPublishedDate
             // 
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label2.ForeColor = Color.FromArgb(64, 0, 0);
-            label2.Location = new Point(545, 42);
-            label2.Name = "label2";
-            label2.Size = new Size(209, 23);
-            label2.TabIndex = 5;
-            label2.Text = "Publised Date";
+            lblPublishedDate.BackColor = Color.Transparent;
+            lblPublishedDate.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            lblPublishedDate.ForeColor = Color.FromArgb(64, 0, 0);
+            lblPublishedDate.Location = new Point(545, 42);
+            lblPublishedDate.Name = "lblPublishedDate";
+            lblPublishedDate.Size = new Size(209, 23);
+            lblPublishedDate.TabIndex = 5;
+            lblPublishedDate.Text = "Publised Date";
             // 
-            // label3
+            // lblPrice
             // 
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label3.ForeColor = Color.FromArgb(64, 0, 0);
-            label3.Location = new Point(545, 108);
-            label3.Name = "label3";
-            label3.Size = new Size(209, 23);
-            label3.TabIndex = 6;
-            label3.Text = "Price";
+            lblPrice.BackColor = Color.Transparent;
+            lblPrice.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            lblPrice.ForeColor = Color.FromArgb(64, 0, 0);
+            lblPrice.Location = new Point(545, 108);
+            lblPrice.Name = "lblPrice";
+            lblPrice.Size = new Size(209, 23);
+            lblPrice.TabIndex = 6;
+            lblPrice.Text = "Price";
             // 
-            // label4
+            // lblDiscount
             // 
-            label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label4.ForeColor = Color.FromArgb(64, 0, 0);
-            label4.Location = new Point(545, 173);
-            label4.Name = "label4";
-            label4.Size = new Size(209, 23);
-            label4.TabIndex = 7;
-            label4.Text = "Discount";
+            lblDiscount.BackColor = Color.Transparent;
+            lblDiscount.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            lblDiscount.ForeColor = Color.FromArgb(64, 0, 0);
+            lblDiscount.Location = new Point(545, 173);
+            lblDiscount.Name = "lblDiscount";
+            lblDiscount.Size = new Size(209, 23);
+            lblDiscount.TabIndex = 7;
+            lblDiscount.Text = "Discount";
             // 
-            // textBox1
+            // txtArtist
             // 
-            textBox1.Location = new Point(289, 134);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(209, 23);
-            textBox1.TabIndex = 8;
+            txtArtist.Location = new Point(289, 134);
+            txtArtist.Name = "txtArtist";
+            txtArtist.Size = new Size(209, 23);
+            txtArtist.TabIndex = 8;
             // 
-            // textBox2
+            // txtPrice
             // 
-            textBox2.Location = new Point(545, 71);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(209, 23);
-            textBox2.TabIndex = 9;
+            txtPrice.Location = new Point(545, 134);
+            txtPrice.Name = "txtPrice";
+            txtPrice.Size = new Size(209, 23);
+            txtPrice.TabIndex = 10;
             // 
-            // textBox3
+            // txtDiscount
             // 
-            textBox3.Location = new Point(545, 134);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(209, 23);
-            textBox3.TabIndex = 10;
+            txtDiscount.Location = new Point(545, 199);
+            txtDiscount.Name = "txtDiscount";
+            txtDiscount.Size = new Size(209, 23);
+            txtDiscount.TabIndex = 11;
             // 
-            // textBox4
+            // btnAdd
             // 
-            textBox4.Location = new Point(545, 199);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(209, 23);
-            textBox4.TabIndex = 11;
+            btnAdd.Location = new Point(298, 412);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(106, 35);
+            btnAdd.TabIndex = 12;
+            btnAdd.Text = "ADD";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
-            // button1
+            // btnDelete
             // 
-            button1.Location = new Point(298, 412);
-            button1.Name = "button1";
-            button1.Size = new Size(106, 35);
-            button1.TabIndex = 12;
-            button1.Text = "ADD";
-            button1.UseVisualStyleBackColor = true;
+            btnDelete.Location = new Point(410, 412);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(106, 35);
+            btnDelete.TabIndex = 13;
+            btnDelete.Text = "DELETE";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
-            // button2
+            // btnUpdate
             // 
-            button2.Location = new Point(410, 412);
-            button2.Name = "button2";
-            button2.Size = new Size(106, 35);
-            button2.TabIndex = 13;
-            button2.Text = "DELETE";
-            button2.UseVisualStyleBackColor = true;
+            btnUpdate.Location = new Point(522, 412);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(106, 35);
+            btnUpdate.TabIndex = 14;
+            btnUpdate.Text = "UPDATE";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
-            // button3
+            // btnReports
             // 
-            button3.Location = new Point(522, 412);
-            button3.Name = "button3";
-            button3.Size = new Size(106, 35);
-            button3.TabIndex = 14;
-            button3.Text = "UPDATE";
-            button3.UseVisualStyleBackColor = true;
+            btnReports.Location = new Point(682, 412);
+            btnReports.Name = "btnReports";
+            btnReports.Size = new Size(106, 35);
+            btnReports.TabIndex = 15;
+            btnReports.Text = "REPORTS";
+            btnReports.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // dtpPublishedDate
             // 
-            button4.Location = new Point(682, 412);
-            button4.Name = "button4";
-            button4.Size = new Size(106, 35);
-            button4.TabIndex = 15;
-            button4.Text = "REPORTS";
-            button4.UseVisualStyleBackColor = true;
+            dtpPublishedDate.Format = DateTimePickerFormat.Short;
+            dtpPublishedDate.Location = new Point(545, 71);
+            dtpPublishedDate.Name = "dtpPublishedDate";
+            dtpPublishedDate.Size = new Size(200, 23);
+            dtpPublishedDate.TabIndex = 16;
             // 
             // AlbumPage
             // 
@@ -188,23 +194,24 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(textBox4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(txtUserName);
+            Controls.Add(dtpPublishedDate);
+            Controls.Add(btnReports);
+            Controls.Add(btnUpdate);
+            Controls.Add(btnDelete);
+            Controls.Add(btnAdd);
+            Controls.Add(txtDiscount);
+            Controls.Add(txtPrice);
+            Controls.Add(txtArtist);
+            Controls.Add(lblDiscount);
+            Controls.Add(lblPrice);
+            Controls.Add(lblPublishedDate);
+            Controls.Add(lblArtist);
+            Controls.Add(txtAlbumName);
             Controls.Add(lblUserName);
             Controls.Add(dgvAlbums);
             Name = "AlbumPage";
             Text = "AlbumPage";
+            Load += AlbumPage_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAlbums).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -214,18 +221,18 @@
 
         private DataGridView dgvAlbums;
         private Label lblUserName;
-        private TextBox txtUserName;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private TextBox txtAlbumName;
+        private Label lblArtist;
+        private Label lblPublishedDate;
+        private Label lblPrice;
+        private Label lblDiscount;
+        private TextBox txtArtist;
+        private TextBox txtPrice;
+        private TextBox txtDiscount;
+        private Button btnAdd;
+        private Button btnDelete;
+        private Button btnUpdate;
+        private Button btnReports;
+        private DateTimePicker dtpPublishedDate;
     }
 }
