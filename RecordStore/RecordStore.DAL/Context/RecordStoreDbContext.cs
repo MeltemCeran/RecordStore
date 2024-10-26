@@ -155,58 +155,122 @@ namespace RecordStore.DAL.Context
                          CreatedDate = new DateTime(2024, 4, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
                          Price = 500,
                          IsActive = true
-                     },
-                        new Album
-                        {
-                            Id = 8,
-                            Name = "Ankaranın Ayazı",
-                            Singers = "Ankaranın Bağları",
-                            PublishedDate = new DateOnly(2024, 11, 22),
-                            CreatedDate = new DateTime(2024, 3, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                            Price = 500,
-                            IsActive = true
-                        },
-                           new Album
-                           {
-                               Id = 9,
-                               Name = "Ankaranın Ayazı",
-                               Singers = "Ankaranın Bağları",
-                               PublishedDate = new DateOnly(2024, 11, 22),
-                               CreatedDate = new DateTime(2024, 2, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                               Price = 500,
-                               IsActive = true
-                           },
+                 },
+                 new Album
+                 {
+                     Id = 8,
+                     Name = "Ankaranın Ayazı",
+                     Singers = "Ankaranın Bağları",
+                     PublishedDate = new DateOnly(2024, 11, 22),
+                     CreatedDate = new DateTime(2024, 3, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                     Price = 500,
+                     IsActive = true
+                 },
+                 new Album
+                 {
+                     Id = 9,
+                     Name = "Ankaranın Ayazı",
+                     Singers = "Ankaranın Bağları",
+                     PublishedDate = new DateOnly(2024, 11, 22),
+                     CreatedDate = new DateTime(2024, 2, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                     Price = 500,
+                     IsActive = true
+                 },
+                 new Album
+                 {
+                     Id = 10,
+                     Name = "Ankaranın Ayazı",
+                     Singers = "Ankaranın Bağları",
+                     PublishedDate = new DateOnly(2024, 11, 22),
+                     CreatedDate = new DateTime(2024, 1, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                     Price = 500,
+                     IsActive = true
+                 },
+                 new Album
+                 {
+                     Id = 11,
+                 Name = "Ankaranın Ayazı",
+                 Singers = "Ankaranın Bağları",
+                 PublishedDate = new DateOnly(2024, 11, 22),
+                 CreatedDate = new DateTime(2024, 6, 10, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                 Price = 500,
+                 IsActive = true
+                 },
+                 new Album
+                 {
+                     Id = 12,
+                     Name = "Ankaranın Ayazı",
+                     Singers = "Ankaranın Bağları",
+                     PublishedDate = new DateOnly(2024, 11, 22),
+                     CreatedDate = new DateTime(2024, 6, 9, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                     Price = 500,
+                     Discount = 0.85,
+                     IsActive = true
+                 },
+
+                  new Album
+                  {
+                      Id = 13,
+
+                      Name = "Sametten Nameler",
+
+                      Singers = "Samet",
+
+                      PublishedDate = new DateOnly(2024, 10, 26),
+                      CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                      Price = 100,
+
+                      IsActive = false
+
+                  },
+                      new Album
+                      {
+                          Id = 14,
+
+                          Name = "Sametten Nameler",
+
+                          Singers = "Samet",
+
+                          PublishedDate = new DateOnly(2024, 10, 26),
+                          CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                          Price = 100,
+                          Discount = 0.80,
+                          IsActive = true
+
+                      },
+                          new Album
+                          {
+                              Id = 15,
+
+                              Name = "Sametten Nameler",
+
+                              Singers = "Samet",
+
+                              PublishedDate = new DateOnly(2024, 10, 26),
+                              CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                              Price = 100,
+
+                              IsActive = false
+
+                          },
                               new Album
                               {
-                                  Id = 10,
-                                  Name = "Ankaranın Ayazı",
-                                  Singers = "Ankaranın Bağları",
-                                  PublishedDate = new DateOnly(2024, 11, 22),
-                                  CreatedDate = new DateTime(2024, 1, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                                  Price = 500,
-                                  IsActive = true
-                              },
-                                 new Album
-                                 {
-                                     Id = 11,
-                                     Name = "Ankaranın Ayazı",
-                                     Singers = "Ankaranın Bağları",
-                                     PublishedDate = new DateOnly(2024, 11, 22),
-                                     CreatedDate = new DateTime(2024, 6, 10, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                                     Price = 500,
-                                     IsActive = true
-                                 },
-                                    new Album
-                                    {
-                                        Id = 12,
-                                        Name = "Ankaranın Ayazı",
-                                        Singers = "Ankaranın Bağları",
-                                        PublishedDate = new DateOnly(2024, 11, 22),
-                                        CreatedDate = new DateTime(2024, 6, 9, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                                        Price = 500,
-                                        IsActive = true
-                                    }
-                                      
+                                  Id = 16,
+
+                                  Name = "Sametten Nameler",
+
+                                  Singers = "Samet",
+
+                                  PublishedDate = new DateOnly(2024, 10, 26),
+                                  CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                                  Price = 100,
+
+                                  IsActive = false
+
+                              }
+
+
+
 
 
             );

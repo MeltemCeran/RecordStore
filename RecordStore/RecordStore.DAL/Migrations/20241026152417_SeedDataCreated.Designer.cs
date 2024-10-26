@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RecordStore.DAL.Context;
 
@@ -11,9 +12,11 @@ using RecordStore.DAL.Context;
 namespace RecordStore.DAL.Migrations
 {
     [DbContext(typeof(RecordStoreDbContext))]
-    partial class RecordStoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241026152417_SeedDataCreated")]
+    partial class SeedDataCreated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -179,53 +182,11 @@ namespace RecordStore.DAL.Migrations
                         {
                             Id = 12,
                             CreatedDate = new DateTime(2024, 6, 9, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                            Discount = 0.85m,
                             IsActive = true,
                             Name = "Ankaranın Ayazı",
                             Price = 500m,
                             PublishedDate = new DateOnly(2024, 11, 22),
                             Singers = "Ankaranın Bağları"
-                        },
-                        new
-                        {
-                            Id = 13,
-                            CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                            IsActive = false,
-                            Name = "Sametten Nameler",
-                            Price = 100m,
-                            PublishedDate = new DateOnly(2024, 10, 26),
-                            Singers = "Samet"
-                        },
-                        new
-                        {
-                            Id = 14,
-                            CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                            Discount = 0.8m,
-                            IsActive = true,
-                            Name = "Sametten Nameler",
-                            Price = 100m,
-                            PublishedDate = new DateOnly(2024, 10, 26),
-                            Singers = "Samet"
-                        },
-                        new
-                        {
-                            Id = 15,
-                            CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                            IsActive = false,
-                            Name = "Sametten Nameler",
-                            Price = 100m,
-                            PublishedDate = new DateOnly(2024, 10, 26),
-                            Singers = "Samet"
-                        },
-                        new
-                        {
-                            Id = 16,
-                            CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                            IsActive = false,
-                            Name = "Sametten Nameler",
-                            Price = 100m,
-                            PublishedDate = new DateOnly(2024, 10, 26),
-                            Singers = "Samet"
                         });
                 });
 
