@@ -31,11 +31,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignUpPage));
             lblUserName = new Label();
             txtUserName = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            lblPasswordAgaın = new Label();
+            lblPassword = new Label();
+            txtPassword = new TextBox();
+            txtPasswordAgaın = new TextBox();
             btnSignUp = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // lblUserName
@@ -56,41 +57,41 @@
             txtUserName.Size = new Size(209, 23);
             txtUserName.TabIndex = 3;
             // 
-            // label1
+            // lblPasswordAgaın
             // 
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label1.ForeColor = Color.FromArgb(64, 0, 0);
-            label1.Location = new Point(330, 135);
-            label1.Name = "label1";
-            label1.Size = new Size(209, 23);
-            label1.TabIndex = 4;
-            label1.Text = "Password Again";
+            lblPasswordAgaın.BackColor = Color.Transparent;
+            lblPasswordAgaın.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            lblPasswordAgaın.ForeColor = Color.FromArgb(64, 0, 0);
+            lblPasswordAgaın.Location = new Point(330, 135);
+            lblPasswordAgaın.Name = "lblPasswordAgaın";
+            lblPasswordAgaın.Size = new Size(209, 23);
+            lblPasswordAgaın.TabIndex = 4;
+            lblPasswordAgaın.Text = "Password Again";
             // 
-            // label2
+            // lblPassword
             // 
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
-            label2.ForeColor = Color.FromArgb(64, 0, 0);
-            label2.Location = new Point(330, 77);
-            label2.Name = "label2";
-            label2.Size = new Size(209, 23);
-            label2.TabIndex = 5;
-            label2.Text = "Password";
+            lblPassword.BackColor = Color.Transparent;
+            lblPassword.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            lblPassword.ForeColor = Color.FromArgb(64, 0, 0);
+            lblPassword.Location = new Point(330, 77);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(209, 23);
+            lblPassword.TabIndex = 5;
+            lblPassword.Text = "Password";
             // 
-            // textBox1
+            // txtPassword
             // 
-            textBox1.Location = new Point(330, 103);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(209, 23);
-            textBox1.TabIndex = 6;
+            txtPassword.Location = new Point(330, 103);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(209, 23);
+            txtPassword.TabIndex = 6;
             // 
-            // textBox2
+            // txtPasswordAgaın
             // 
-            textBox2.Location = new Point(330, 161);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(209, 23);
-            textBox2.TabIndex = 7;
+            txtPasswordAgaın.Location = new Point(330, 161);
+            txtPasswordAgaın.Name = "txtPasswordAgaın";
+            txtPasswordAgaın.Size = new Size(209, 23);
+            txtPasswordAgaın.TabIndex = 7;
             // 
             // btnSignUp
             // 
@@ -104,6 +105,16 @@
             btnSignUp.Text = "SIGN UP 🎸";
             btnSignUp.TextAlign = ContentAlignment.TopCenter;
             btnSignUp.UseVisualStyleBackColor = false;
+            btnSignUp.Click += btnSignUp_Click;
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.Transparent;
+            label1.Location = new Point(579, 25);
+            label1.Name = "label1";
+            label1.Size = new Size(209, 133);
+            label1.TabIndex = 10;
+            label1.Text = resources.GetString("label1.Text");
             // 
             // SignUpPage
             // 
@@ -112,11 +123,12 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
-            Controls.Add(btnSignUp);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(btnSignUp);
+            Controls.Add(txtPasswordAgaın);
+            Controls.Add(txtPassword);
+            Controls.Add(lblPassword);
+            Controls.Add(lblPasswordAgaın);
             Controls.Add(txtUserName);
             Controls.Add(lblUserName);
             DoubleBuffered = true;
@@ -131,10 +143,11 @@
 
         private Label lblUserName;
         private TextBox txtUserName;
-        private Label label1;
-        private Label label2;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private Label lblPasswordAgaın;
+        private Label lblPassword;
+        private TextBox txtPassword;
+        private TextBox txtPasswordAgaın;
         private Button btnSignUp;
+        private Label label1;
     }
 }

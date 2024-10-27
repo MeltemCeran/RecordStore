@@ -11,13 +11,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using RecordStore.BLL.Models.Concrete;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace RecordStore.PL
 {
     public partial class LoginPage : Form
     {
-       
-
         private readonly IUnitOfWork _unitOfWork;
         public LoginPage()
         {
@@ -30,72 +30,39 @@ namespace RecordStore.PL
             signUpPage.ShowDialog();
         }
 
-        private bool ValidateUser(string userName, string userPassword)
-        {
-            userName = txtUserName.Text;
-            userPassword = txtPassword.Text;
-
-            using (UserManager userManager = new UserManager(_unitOfWork))
-            {
-                var userModels = userManager.GetAll().ToList();
-
-                foreach (var userModel in userModels)
-                {
-                    if (userModel.UserName == userName && userModel.Password == userPassword)
-                    {
-                        AlbumPage albumPage = new AlbumPage();
-                        return true;
-                        
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-                return true;
-
-                string hashedInputPassword;
-            }
-        }
-
-        private string sha256_hash(string sifre)
+        public string sha256_hash(string sifre)
         {
             using (SHA256 hash = SHA256Managed.Create())
             {
-                return string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(sifre)).Select(a => a.ToString("X2")));
+                return string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(sifre)).Select(a => a.ToString("x2")));
             }
         }
 
-
-
-
-
         private void btnLogin_Click(object sender, EventArgs e)
-            {
-                string userName = txtUserName.Text;
-                string userPassword = txtPassword.Text;
-
-                using (UserManager userManager = new UserManager(_unitOfWork))
+        {
+          string userName = txtUserName.Text;
+          string userPassword = txtPassword.Text;
+          string hassedPassword = sha256_hash(userPassword);
+            
+            using(UserManager userManager = new UserManager(_unitOfWork))
             {
                 var userModels = userManager.GetAll().ToList();
 
                 foreach (var userModel in userModels)
-                {
-                    if (userModel.UserName == userName )
+                { 
+                    if(hassedPassword == userModel.Password && userName == userModel.UserName)
                     {
                         AlbumPage albumPage = new AlbumPage();
                         albumPage.ShowDialog();
+                        return;
                     }
-
-                    if(userModel.Password == userPassword)
+                    else
                     {
-                        
+                        MessageBox.Show("Kullanıcı adı veya şifre yanlış!");
+                        return;
                     }
-                    
                 }
-                MessageBox.Show("Şifre Yanlış!");
             }
         }
-
     }
 }
