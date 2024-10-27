@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace RecordStore.BLL.Models.Concrete
 {
-    public class UserModel : BaseViewModel
+    public class IsActiveAlbumReport : ReportAlbumResult
     {
-        public string UserName { get; set; }
-        public string Password { get; set; }
+        public bool IsActive { get; set; }
     }
 }

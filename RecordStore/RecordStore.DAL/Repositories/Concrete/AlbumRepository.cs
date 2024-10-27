@@ -21,8 +21,7 @@ namespace RecordStore.DAL.Repositories.Concrete
         }
         public ICollection<Album> InActiveAlbums()
         {
-            IQueryable<Album> query = _entities.Select(a => new Album { Name = a.Name, Singers = a.Singers, IsActive = a.IsActive })
-                .Where(a => !a.IsActive);
+            IQueryable<Album> query = _entities.Where(a => !a.IsActive);
             return query.ToList();
         }
 
@@ -44,10 +43,7 @@ namespace RecordStore.DAL.Repositories.Concrete
         }
         public ICollection<Album> DiscountByAlbum()
         {
-            IQueryable<Album> query = _entities.Select(a => new Album { Discount = a.Discount, Name = a.Name, Singers = a.Singers })
-                .Where(a => a.Discount != null)
-                .OrderBy(a => a.Discount);
-
+            IQueryable<Album> query = _entities.Where(a => a.Discount != null);
             return query.ToList();
 
         }

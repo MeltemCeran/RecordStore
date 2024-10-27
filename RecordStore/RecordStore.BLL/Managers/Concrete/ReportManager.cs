@@ -1,4 +1,6 @@
 ﻿using RecordStore.BLL.Managers.Abstract;
+using RecordStore.BLL.Models.Abstract;
+using RecordStore.BLL.Models.Concrete;
 using RecordStore.DAL.Entities.Concrete;
 using RecordStore.DAL.Services.Abstract;
 using System;
@@ -17,14 +19,15 @@ namespace RecordStore.BLL.Managers.Concrete
             _reportService = reportService;
         }
 
-        public ICollection<Album> TakeActiveAlbums()
+        public ICollection<IsActiveAlbumReport> TakeActiveAlbums()
         {
-            return _reportService.GetActiveAlbums();
+            return _reportService.GetActiveAlbums().Select(s => new IsActiveAlbumReport() { Name = s.Name, Singers = s.Singers, IsActive = s.IsActive }).ToList();
+            
         }
 
-        public ICollection<Album> TakeDiscountedAlbums()
+        public ICollection<DiscountedAlbumReport> TakeDiscountedAlbums()
         {
-            return _reportService.GetDiscountedAlbums();
+            return _reportService.GetDiscountedAlbums().Select(a => new DiscountedAlbumReport { Discount = a.Discount, Name = a.Name, Singers = a.Singers }).OrderBy(a => a.Discount);
         }
 
         public ICollection<Album> TakeInActiveAlbums()

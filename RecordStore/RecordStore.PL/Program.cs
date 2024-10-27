@@ -13,15 +13,15 @@ namespace RecordStore.PL
         [STAThread]
         static void Main()
         {
-            var dbContext = new RecordStoreDbContext(); // Kendi DbContext sýnýfýnýzý kullanýn
-            var unitOfWork = new UnitOfWork(dbContext); // IUnitOfWork uyumlu nesne
-            var reportService = new ReportService(unitOfWork); // IReportService uyumlu nesne
-            var reportManager = new ReportManager(reportService); // IReportManager uyumlu nesne
+            //var dbContext = new RecordStoreDbContext(); // Kendi DbContext sýnýfýnýzý kullanýn
+            //var unitOfWork = new UnitOfWork(dbContext); // IUnitOfWork uyumlu nesne
+            //var reportService = new ReportService(unitOfWork); // IReportService uyumlu nesne
+            //var reportManager = new ReportManager(reportService); // IReportManager uyumlu nesne
 
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new ReportsPage(reportManager));
+            Application.Run(new LoginPage());
         }
     }
 }
