@@ -200,7 +200,7 @@ namespace RecordStore.PL
             var reportService = new ReportService(unitOfWork); // IReportService uyumlu nesne
             var reportManager = new ReportManager(reportService); // IReportManager uyumlu nesne
 
-            ReportsPage reportPage = new ReportsPage(reportManager);
+            ReportPages reportPage = new ReportPages(reportManager);
             reportPage.ShowDialog();
         }
     }

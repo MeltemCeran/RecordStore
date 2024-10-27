@@ -17,7 +17,7 @@ namespace RecordStore.DAL.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string[] server = { "DESKTOP-QJIAQ3L", "LAPTOP-3HH2461E", "DESKTOP-M590E2O\\SAMETLESSON", "DILA\\AYDANPERSONALSVR" };
-            string connectionString = $"Data Source={server[0]};Database=RecordStoreDb;Trusted_Connection=True;Encrypt=No";
+            string connectionString = $"Data Source={server[1]};Database=RecordStoreDb;Trusted_Connection=True;Encrypt=No";
             optionsBuilder.UseSqlServer(connectionString);
         }
 
