@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace RecordStore.PL
 {
@@ -22,30 +23,56 @@ namespace RecordStore.PL
             InitializeComponent();
         }
 
-        
-
-
         private void btnSignUp_Click(object sender, EventArgs e)
         {
-            
-            using(UserManager userManager = new UserManager(_unitOfWork))
+            // Şifre için geçerlilik deseni
+            string passwordPattern = @"^(?=(?:[^A-Z]*[A-Z]){2})(?=(?:[^a-z]*[a-z]){3})(?=(?:[^!+:*]*[!+:*]){2})[A-Za-z0-9!+:*]{8,}$";
+
+            // Kullanıcıdan alınan girişler
+            string enteredPassword = txtPassword.Text;
+            string enteredUserName = txtUserName.Text;
+            string repeatedPassword = txtPasswordAgaın.Text;
+
+            // UserManager içinde işlem yapmaya başlıyoruz
+            using (UserManager userManager = new UserManager(_unitOfWork))
             {
-                string validateGuidRegex = @"^(?=(?:[^A-Z]*[A-Z]){2})(?=(?:[^a-z]*[a-z]){3})(?=(?:[^!+:*]*[!+:*]){2})[A-Za-z0-9!+:*]{8,}$";
-
-                UserModel model = new UserModel();
-
-                string passwordCheck = txtPassword.Text;
-                
-                if(Regex.IsMatch(passwordCheck, validateGuidRegex))
+                // Kullanıcı adı benzersizliği kontrolü
+                bool isUserNameTaken = userManager.GetAll().Any(user => user.UserName == enteredUserName);
+                if (isUserNameTaken)
                 {
-                    txtUserName.Text = model.UserName;
-                    passwordCheck = model.Password;
+                    MessageBox.Show("Bu kullanıcı adına sahip bir kullanıcı bulunmaktadır. Lütfen kullanıcı adınızı değiştirin.");
+                    return;
                 }
-                else
+
+                // Şifre kriterlerini kontrol et
+                if (!Regex.IsMatch(enteredPassword, passwordPattern))
                 {
-                    MessageBox.Show("");
+                    MessageBox.Show("Lütfen kriterlere uygun bir şifre girin.");
+                    return;
                 }
+
+                // Şifrelerin eşleşme kontrolü
+                if (enteredPassword != repeatedPassword)
+                {
+                    MessageBox.Show("Şifreler uyuşmamaktadır. Lütfen tekrar deneyin.");
+                    return;
+                }
+
+                // Şifre ve kullanıcı adı kriterleri karşılandığında kullanıcı modeli oluşturma
+                UserModel newUser = new UserModel
+                {
+                    UserName = enteredUserName,
+                    Password = enteredPassword
+                };
+
+                // Yeni kullanıcıyı ekleme işlemi
+                userManager.Add(newUser);
+
+                // Başarılı olduğunda giriş sayfasını göster
+                LoginPage loginPage = new LoginPage();
+                loginPage.ShowDialog();
             }
+
         }
     }
 }
