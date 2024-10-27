@@ -43,6 +43,7 @@ namespace RecordStore.PL
           string userName = txtUserName.Text;
           string userPassword = txtPassword.Text;
           string hassedPassword = sha256_hash(userPassword);
+            bool correct = false;
             
             using(UserManager userManager = new UserManager(_unitOfWork))
             {
@@ -52,15 +53,17 @@ namespace RecordStore.PL
                 { 
                     if(hassedPassword == userModel.Password && userName == userModel.UserName)
                     {
+                        correct = true;
                         AlbumPage albumPage = new AlbumPage();
                         albumPage.ShowDialog();
                         return;
                     }
-                    else
-                    {
-                        MessageBox.Show("Kullanıcı adı veya şifre yanlış!");
-                        return;
-                    }
+                  
+                }
+
+                if (correct == false)
+                {
+                    MessageBox.Show("Hatalı giriş");
                 }
             }
         }

@@ -26,8 +26,8 @@ namespace RecordStore.PL
         }
         public void GetInActiveAlbumsForm()
         {
-            dgvQuery1.DataSource = _reportManager.TakeInActiveAlbums();
             dgvQuery2.DataSource = _reportManager.TakeActiveAlbums();
+            dgvQuery1.DataSource = _reportManager.TakeInActiveAlbums();
             dgvQuery3.DataSource = _reportManager.TakeDiscountedAlbums();
             dgvQuery4.DataSource = _reportManager.TakeLastAddedAlbums();
 

@@ -50,10 +50,10 @@
             // dgvAlbums
             // 
             dgvAlbums.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAlbums.Location = new Point(289, 228);
+            dgvAlbums.Location = new Point(334, 241);
             dgvAlbums.Name = "dgvAlbums";
             dgvAlbums.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvAlbums.Size = new Size(499, 168);
+            dgvAlbums.Size = new Size(586, 265);
             dgvAlbums.TabIndex = 0;
             dgvAlbums.CellClick += dgvAlbums_CellClick;
             // 
@@ -62,7 +62,7 @@
             lblUserName.BackColor = Color.Transparent;
             lblUserName.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lblUserName.ForeColor = Color.FromArgb(64, 0, 0);
-            lblUserName.Location = new Point(289, 42);
+            lblUserName.Location = new Point(410, 42);
             lblUserName.Name = "lblUserName";
             lblUserName.Size = new Size(209, 23);
             lblUserName.TabIndex = 1;
@@ -70,7 +70,7 @@
             // 
             // txtAlbumName
             // 
-            txtAlbumName.Location = new Point(289, 71);
+            txtAlbumName.Location = new Point(410, 71);
             txtAlbumName.Name = "txtAlbumName";
             txtAlbumName.Size = new Size(209, 23);
             txtAlbumName.TabIndex = 3;
@@ -80,7 +80,7 @@
             lblArtist.BackColor = Color.Transparent;
             lblArtist.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lblArtist.ForeColor = Color.FromArgb(64, 0, 0);
-            lblArtist.Location = new Point(289, 108);
+            lblArtist.Location = new Point(410, 108);
             lblArtist.Name = "lblArtist";
             lblArtist.Size = new Size(209, 23);
             lblArtist.TabIndex = 4;
@@ -91,7 +91,7 @@
             lblPublishedDate.BackColor = Color.Transparent;
             lblPublishedDate.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lblPublishedDate.ForeColor = Color.FromArgb(64, 0, 0);
-            lblPublishedDate.Location = new Point(545, 42);
+            lblPublishedDate.Location = new Point(667, 42);
             lblPublishedDate.Name = "lblPublishedDate";
             lblPublishedDate.Size = new Size(209, 23);
             lblPublishedDate.TabIndex = 5;
@@ -102,7 +102,7 @@
             lblPrice.BackColor = Color.Transparent;
             lblPrice.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lblPrice.ForeColor = Color.FromArgb(64, 0, 0);
-            lblPrice.Location = new Point(545, 108);
+            lblPrice.Location = new Point(667, 108);
             lblPrice.Name = "lblPrice";
             lblPrice.Size = new Size(209, 23);
             lblPrice.TabIndex = 6;
@@ -113,7 +113,7 @@
             lblDiscount.BackColor = Color.Transparent;
             lblDiscount.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             lblDiscount.ForeColor = Color.FromArgb(64, 0, 0);
-            lblDiscount.Location = new Point(545, 173);
+            lblDiscount.Location = new Point(667, 173);
             lblDiscount.Name = "lblDiscount";
             lblDiscount.Size = new Size(209, 23);
             lblDiscount.TabIndex = 7;
@@ -121,28 +121,28 @@
             // 
             // txtArtist
             // 
-            txtArtist.Location = new Point(289, 134);
+            txtArtist.Location = new Point(410, 134);
             txtArtist.Name = "txtArtist";
             txtArtist.Size = new Size(209, 23);
             txtArtist.TabIndex = 8;
             // 
             // txtPrice
             // 
-            txtPrice.Location = new Point(545, 134);
+            txtPrice.Location = new Point(667, 134);
             txtPrice.Name = "txtPrice";
             txtPrice.Size = new Size(209, 23);
             txtPrice.TabIndex = 10;
             // 
             // txtDiscount
             // 
-            txtDiscount.Location = new Point(545, 199);
+            txtDiscount.Location = new Point(667, 199);
             txtDiscount.Name = "txtDiscount";
             txtDiscount.Size = new Size(209, 23);
             txtDiscount.TabIndex = 11;
             // 
             // btnAdd
             // 
-            btnAdd.Location = new Point(298, 412);
+            btnAdd.Location = new Point(443, 526);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(106, 35);
             btnAdd.TabIndex = 12;
@@ -152,7 +152,7 @@
             // 
             // btnDelete
             // 
-            btnDelete.Location = new Point(410, 412);
+            btnDelete.Location = new Point(555, 526);
             btnDelete.Name = "btnDelete";
             btnDelete.Size = new Size(106, 35);
             btnDelete.TabIndex = 13;
@@ -162,7 +162,7 @@
             // 
             // btnUpdate
             // 
-            btnUpdate.Location = new Point(522, 412);
+            btnUpdate.Location = new Point(667, 526);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.Size = new Size(106, 35);
             btnUpdate.TabIndex = 14;
@@ -172,17 +172,18 @@
             // 
             // btnReports
             // 
-            btnReports.Location = new Point(682, 412);
+            btnReports.Location = new Point(827, 526);
             btnReports.Name = "btnReports";
             btnReports.Size = new Size(106, 35);
             btnReports.TabIndex = 15;
             btnReports.Text = "REPORTS";
             btnReports.UseVisualStyleBackColor = true;
+            btnReports.Click += btnReports_Click;
             // 
             // dtpPublishedDate
             // 
             dtpPublishedDate.Format = DateTimePickerFormat.Short;
-            dtpPublishedDate.Location = new Point(545, 71);
+            dtpPublishedDate.Location = new Point(667, 71);
             dtpPublishedDate.Name = "dtpPublishedDate";
             dtpPublishedDate.Size = new Size(200, 23);
             dtpPublishedDate.TabIndex = 16;
@@ -193,7 +194,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(945, 573);
             Controls.Add(dtpPublishedDate);
             Controls.Add(btnReports);
             Controls.Add(btnUpdate);
@@ -210,6 +211,7 @@
             Controls.Add(lblUserName);
             Controls.Add(dgvAlbums);
             Name = "AlbumPage";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AlbumPage";
             Load += AlbumPage_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAlbums).EndInit();

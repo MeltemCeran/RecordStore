@@ -120,6 +120,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginPage";
             StartPosition = FormStartPosition.CenterScreen;
+            Tag = "*";
             Text = "LoginPage";
             ResumeLayout(false);
             PerformLayout();

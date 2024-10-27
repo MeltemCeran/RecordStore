@@ -1,5 +1,7 @@
 ﻿using RecordStore.BLL.Managers.Concrete;
 using RecordStore.BLL.Models.Concrete;
+using RecordStore.DAL.Context;
+using RecordStore.DAL.Services.Concrete;
 using RecordStore.DAL.UnitOfWorks;
 using System;
 using System.Collections.Generic;
@@ -16,6 +18,7 @@ namespace RecordStore.PL
 {
     public partial class AlbumPage : Form
     {
+        private readonly IUnitOfWork _unitOfWork;
         AlbumModel selectedAlbum;
         public AlbumPage()
         {
@@ -188,6 +191,17 @@ namespace RecordStore.PL
 
                 FormClear(); // Formu temizle
             }
+        }
+
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            var dbContext = new RecordStoreDbContext(); // Kendi DbContext sınıfınızı kullanın
+            var unitOfWork = new UnitOfWork(dbContext); // IUnitOfWork uyumlu nesne
+            var reportService = new ReportService(unitOfWork); // IReportService uyumlu nesne
+            var reportManager = new ReportManager(reportService); // IReportManager uyumlu nesne
+
+            ReportsPage reportPage = new ReportsPage(reportManager);
+            reportPage.ShowDialog();
         }
     }
 }

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -23,6 +24,16 @@ namespace RecordStore.PL
             InitializeComponent();
         }
 
+        
+
+        public string sha256_hash(string sifre)
+        {
+            using (SHA256 hash = SHA256Managed.Create())
+            {
+                return string.Concat(hash.ComputeHash(Encoding.UTF8.GetBytes(sifre)).Select(a => a.ToString("x2")));
+            }
+        }
+
         private void btnSignUp_Click(object sender, EventArgs e)
         {
             // Şifre için geçerlilik deseni
@@ -32,10 +43,12 @@ namespace RecordStore.PL
             string enteredPassword = txtPassword.Text;
             string enteredUserName = txtUserName.Text;
             string repeatedPassword = txtPasswordAgaın.Text;
+            string hassedPassword;
 
             // UserManager içinde işlem yapmaya başlıyoruz
             using (UserManager userManager = new UserManager(_unitOfWork))
             {
+
                 // Kullanıcı adı benzersizliği kontrolü
                 bool isUserNameTaken = userManager.GetAll().Any(user => user.UserName == enteredUserName);
                 if (isUserNameTaken)
@@ -50,6 +63,10 @@ namespace RecordStore.PL
                     MessageBox.Show("Lütfen kriterlere uygun bir şifre girin.");
                     return;
                 }
+                else
+                {
+                     hassedPassword = sha256_hash(enteredPassword);
+                }
 
                 // Şifrelerin eşleşme kontrolü
                 if (enteredPassword != repeatedPassword)
@@ -62,11 +79,12 @@ namespace RecordStore.PL
                 UserModel newUser = new UserModel
                 {
                     UserName = enteredUserName,
-                    Password = enteredPassword
+                    Password = hassedPassword,
                 };
 
                 // Yeni kullanıcıyı ekleme işlemi
                 userManager.Add(newUser);
+                userManager.Save();
 
                 // Başarılı olduğunda giriş sayfasını göster
                 LoginPage loginPage = new LoginPage();
