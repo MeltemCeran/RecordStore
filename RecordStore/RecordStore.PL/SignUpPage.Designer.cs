@@ -136,6 +136,7 @@
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "SignUpPage";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "SignUpPage";
             ResumeLayout(false);
             PerformLayout();

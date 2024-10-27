@@ -1,11 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Azure;
+using Microsoft.EntityFrameworkCore;
 using RecordStore.DAL.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace RecordStore.DAL.Context
 {
@@ -17,7 +20,7 @@ namespace RecordStore.DAL.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string[] server = { "DESKTOP-QJIAQ3L", "LAPTOP-3HH2461E", "DESKTOP-M590E2O\\SAMETLESSON", "DILA\\AYDANPERSONALSVR" };
-            string connectionString = $"Data Source={server[1]};Database=RecordStoreDb;Trusted_Connection=True;Encrypt=No";
+            string connectionString = $"Data Source={server[2]};Database=RecordStoreDb;Trusted_Connection=True;Encrypt=No";
             optionsBuilder.UseSqlServer(connectionString);
         }
 
@@ -40,233 +43,208 @@ namespace RecordStore.DAL.Context
             });
 
             modelBuilder.Entity<User>().HasData(
-
-                new User { Id = 1, UserName = "Samet", Password = "7908281b119b087a0c719cd42d7d75a9f301304f4db96b03756001317dbd942f" }, //123a
-
-                new User { Id = 2, UserName = "Meltem", Password = "982357496c6e531cba092c30369173cf0277e81553aa215c0c4c06529d05ea30" }, //123ab
-
-                new User { Id = 3, UserName = "Batuhan", Password = "dd130a849d7b29e5541b05d2f7f86a4acd4f1ec598c1c9438783f56bc4f0ff80" }, //123abc
-
-                new User { Id = 4, UserName = "Aydan", Password = "f3c6b429c665c140db8fe878b5bef89ae9e1be09bd87ecd537706b8db3ef7e62" } //123abcd
-
+                //ABCabc+*
+                new User { Id = 1, UserName = "Samet", Password = "1c878f9f7033734c34647bfd6bb1e312dd835f319b3df608873444f3a9e65769" },
+                //qweCC:!12
+                new User { Id = 2, UserName = "Meltem", Password = "45e01a38ba96519d7ad13fbf9cb03442768c9f3f2d4c69143554670e54d3f18b" },
+                //qazWSX:5!
+                new User { Id = 3, UserName = "Batuhan", Password = "428b5b31f6f928e466cba5926691b5b18b9dea5d8243114d27cb2909464f22d7" },
+                //PRoje44+:!
+                new User { Id = 4, UserName = "Aydan", Password = "504d3d0e64bef294ad0e15b86f8813bc6ea3b20cd70787b98d47aadba7d98d0d" }
             );
 
-
-
             modelBuilder.Entity<Album>().HasData(
-
+                
                 new Album
                 {
                     Id = 1,
-
-                    Name = "Sametten Nameler",
-
-                    Singers = "Samet",
-
-                    PublishedDate = new DateOnly(2024, 10, 26),
+                    Name = "AM",
+                    Singers = "Arctic Monkeys",
+                    PublishedDate = new DateOnly(2013, 08, 12),
                     CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
                     Price = 100,
-
+                    Discount = 0.78,
                     IsActive = true
-
                 },
-
+                
                 new Album
                 {
                     Id = 2,
-
-                    Name = "Batuhandan Nameler",
-
-                    Singers = "Batuhan",
-
-                    PublishedDate = new DateOnly(2024, 10, 25),
+                    Name = "Favourite Worst Nightmare",
+                    Singers = "Arctic Monkeys",
+                    PublishedDate = new DateOnly(2007, 10, 03),
                     CreatedDate = new DateTime(2024, 9, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
                     Price = 200,
-
                     Discount = 0.5,
-
                     IsActive = true
-
                 },
-
+                
                 new Album
                 {
                     Id = 3,
-
-                    Name = "Meltemden Nameler",
-
-                    Singers = "Meltem",
-
-                    PublishedDate = new DateOnly(2024, 10, 24),
+                    Name = "Biraz Pop Biraz Sezen",
+                    Singers = "Sezen Aksu",
+                    PublishedDate = new DateOnly(2017, 02, 17),
                     CreatedDate = new DateTime(2024, 8, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
                     Price = 300,
-
-
-
+                    Discount = 0.76,
                     IsActive = true
-
                 },
-
+                
                 new Album
                 {
                     Id = 4,
-
-                    Name = "Aydandan Nameler",
-
-                    Singers = "Aydan",
-
-                    PublishedDate = new DateOnly(2024, 10, 23),
+                    Name = "Please Please Me",
+                    Singers = "The Beatles",
+                    PublishedDate = new DateOnly(1963, 07, 11),
                     CreatedDate = new DateTime(2024, 7, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                    Price = 400,
-
-
-
-                    IsActive = true
-
+                    Price = 750,
+                    Discount = 0.76,
+                    IsActive = false
                 },
-
+                
                 new Album
                 {
                     Id = 5,
-                    Name = "Ankaranın Ayazı",
-                    Singers = "Ankaranın Bağları",
-                    PublishedDate = new DateOnly(2024, 11, 22),
+                    Name = "CryBaby",
+                    Singers = "Lil Peep",
+                    PublishedDate = new DateOnly(2016, 06, 18),
                     CreatedDate = new DateTime(2024, 6, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
                     Price = 500,
+                    Discount = 1.0,
                     IsActive = true
                 },
-
+                
                 new Album
                 {
                     Id = 6,
-                    Name = "Ankaranın Ayazı",
-                    Singers = "Ankaranın Bağları",
-                    PublishedDate = new DateOnly(2024, 11, 22),
+                    Name = "Astroworld",
+                    Singers = "Travis Scott",
+                    PublishedDate = new DateOnly(2023, 05, 21),
                     CreatedDate = new DateTime(2024, 5, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                    Price = 500,
+                    Price = 625,
+                    Discount = 0.89,
                     IsActive = true
                 },
+
                  new Album
                  {
                      Id = 7,
-                     Name = "Ankaranın Ayazı",
-                     Singers = "Ankaranın Bağları",
-                     PublishedDate = new DateOnly(2024, 11, 22),
+                     Name = "Bak Kollarım Burada",
+                     Singers = "Mert Demir",
+                     PublishedDate = new DateOnly(2019, 04, 05),
                      CreatedDate = new DateTime(2024, 4, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                     Price = 500,
-                     IsActive = true
+                     Price = 310,
+                     Discount = 0.78,
+                     IsActive = false
                  },
+                
                  new Album
                  {
                      Id = 8,
-                     Name = "Ankaranın Ayazı",
-                     Singers = "Ankaranın Bağları",
-                     PublishedDate = new DateOnly(2024, 11, 22),
+                     Name = "Homecoming",
+                     Singers = "Beyonce",
+                     PublishedDate = new DateOnly(2019, 09, 07),
                      CreatedDate = new DateTime(2024, 3, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                     Price = 500,
+                     Price = 900,
+                     Discount = 0.93,
                      IsActive = true
                  },
+                 
                  new Album
                  {
                      Id = 9,
-                     Name = "Ankaranın Ayazı",
-                     Singers = "Ankaranın Bağları",
-                     PublishedDate = new DateOnly(2024, 11, 22),
+                     Name = "Yolcu",
+                     Singers = "Neşet Ertaş",
+                     PublishedDate = new DateOnly(2003, 05, 13),
                      CreatedDate = new DateTime(2024, 2, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                     Price = 500,
-                     IsActive = true
+                     Price = 95,
+                     Discount = 0.95,
+                     IsActive = false
                  },
+                 
                  new Album
                  {
                      Id = 10,
-                     Name = "Ankaranın Ayazı",
-                     Singers = "Ankaranın Bağları",
-                     PublishedDate = new DateOnly(2024, 11, 22),
+                     Name = "Seni Kendime Sakladım",
+                     Singers = "Duman",
+                     PublishedDate = new DateOnly(2004, 05, 19),
                      CreatedDate = new DateTime(2024, 1, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                     Price = 500,
-                     IsActive = true
-                 },
-                 new Album
-                 {
-                     Id = 11,
-                     Name = "Ankaranın Ayazı",
-                     Singers = "Ankaranın Bağları",
-                     PublishedDate = new DateOnly(2024, 11, 22),
-                     CreatedDate = new DateTime(2024, 6, 10, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                     Price = 500,
-                     IsActive = true
-                 },
-                 new Album
-                 {
-                     Id = 12,
-                     Name = "Ankaranın Ayazı",
-                     Singers = "Ankaranın Bağları",
-                     PublishedDate = new DateOnly(2024, 11, 22),
-                     CreatedDate = new DateTime(2024, 6, 9, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                     Price = 500,
+                     Price = 175,
                      Discount = 0.85,
                      IsActive = true
                  },
+                                  
+                 new Album
+                 {
+                     Id = 11,
+                     Name = "Antichrist Superstar",
+                     Singers = "Marilyn Manson",
+                     PublishedDate = new DateOnly(1996, 10, 08),
+                     CreatedDate = new DateTime(2024, 6, 10, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                     Price = 700,
+                     Discount = 0.70,
+                     IsActive = true
+                 },
 
+                 new Album
+                 {
+                     Id = 12,
+                     Name = "Hal Hal",
+                     Singers = "Barış Manço",
+                     PublishedDate = new DateOnly(1989, 11, 22),
+                     CreatedDate = new DateTime(2024, 6, 9, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                     Price = 585,
+                     Discount = 0.65,
+                     IsActive = true
+                 },
+                 
                   new Album
                   {
                       Id = 13,
-
-                      Name = "Sametten Nameler",
-
-                      Singers = "Samet",
-
-                      PublishedDate = new DateOnly(2024, 10, 26),
+                      Name = "In Utero",
+                      Singers = "Nirvana",
+                      PublishedDate = new DateOnly(1993, 09, 21),
                       CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
                       Price = 100,
-
+                      Discount = 1.0,
                       IsActive = false
-
                   },
+                  
                   new Album
                   {
                       Id = 14,
-
-                      Name = "Sametten Nameler",
-
-                      Singers = "Samet",
-
-                      PublishedDate = new DateOnly(2024, 10, 26),
+                      Name = "Büyük İnsan",
+                      Singers = "Gökhan Türkmen",
+                      PublishedDate = new DateOnly(2010, 07, 16),
                       CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                      Price = 100,
-                      Discount = 0.80,
+                      Price = 320,
+                      Discount = 0.65,
                       IsActive = true
-
                   },
+
                   new Album
                   {
                       Id = 15,
-
-                      Name = "Sametten Nameler",
-
-                      Singers = "Samet",
-
-                      PublishedDate = new DateOnly(2024, 10, 26),
+                      Name = "Resimdeki Gözyaşları",
+                      Singers = "Cem Karaca",
+                      PublishedDate = new DateOnly(1968, 08, 10),
                       CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                      Price = 100,
-
+                      Price = 700,
+                      Discount = 0.93,
                       IsActive = false
-
                   },
+
                   new Album
                   {
                       Id = 16,
-
-                      Name = "Sametten Nameler",
-
-                      Singers = "Samet",
-
-                      PublishedDate = new DateOnly(2024, 10, 26),
+                      Name = "Dünden Yarına",
+                      Singers = "İlhan İrem'",
+                      PublishedDate = new DateOnly(1988, 03, 17),
                       CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                      Price = 100,
-
-                      IsActive = false
-
+                      Price = 560,
+                      Discount = 0.84,
+                      IsActive = true
                   }
             );
 

@@ -9,5 +9,7 @@ namespace RecordStore.BLL.Models.Concrete
     public class IsActiveAlbumReport : ReportAlbumResult
     {
         public bool IsActive { get; set; }
+
+        public string IsActiveStr => IsActive ? "Aktif" : "Pasif";
     }
 }

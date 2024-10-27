@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlbumPage));
             dgvAlbums = new DataGridView();
+            albumModelBindingSource = new BindingSource(components);
             lblUserName = new Label();
             txtAlbumName = new TextBox();
             lblArtist = new Label();
@@ -44,18 +46,41 @@
             btnUpdate = new Button();
             btnReports = new Button();
             dtpPublishedDate = new DateTimePicker();
+            ıdDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            singersDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            priceDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            discountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ısActiveDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
+            publishedDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            createdDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            updatedDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            deletedDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvAlbums).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)albumModelBindingSource).BeginInit();
             SuspendLayout();
             // 
             // dgvAlbums
             // 
+            dgvAlbums.AllowUserToAddRows = false;
+            dgvAlbums.AllowUserToDeleteRows = false;
+            dgvAlbums.AutoGenerateColumns = false;
+            dgvAlbums.BackgroundColor = Color.BlanchedAlmond;
             dgvAlbums.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAlbums.Columns.AddRange(new DataGridViewColumn[] { ıdDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn, singersDataGridViewTextBoxColumn, priceDataGridViewTextBoxColumn, discountDataGridViewTextBoxColumn, ısActiveDataGridViewCheckBoxColumn, publishedDateDataGridViewTextBoxColumn, createdDateDataGridViewTextBoxColumn, updatedDateDataGridViewTextBoxColumn, deletedDateDataGridViewTextBoxColumn });
+            dgvAlbums.DataSource = albumModelBindingSource;
+            dgvAlbums.GridColor = Color.Peru;
             dgvAlbums.Location = new Point(334, 241);
             dgvAlbums.Name = "dgvAlbums";
+            dgvAlbums.ReadOnly = true;
             dgvAlbums.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvAlbums.Size = new Size(586, 265);
+            dgvAlbums.Size = new Size(599, 265);
             dgvAlbums.TabIndex = 0;
             dgvAlbums.CellClick += dgvAlbums_CellClick;
+            // 
+            // albumModelBindingSource
+            // 
+            albumModelBindingSource.DataSource = typeof(BLL.Models.Concrete.AlbumModel);
             // 
             // lblUserName
             // 
@@ -188,6 +213,96 @@
             dtpPublishedDate.Size = new Size(200, 23);
             dtpPublishedDate.TabIndex = 16;
             // 
+            // ıdDataGridViewTextBoxColumn
+            // 
+            ıdDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            ıdDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            ıdDataGridViewTextBoxColumn.HeaderText = "Id";
+            ıdDataGridViewTextBoxColumn.Name = "ıdDataGridViewTextBoxColumn";
+            ıdDataGridViewTextBoxColumn.ReadOnly = true;
+            ıdDataGridViewTextBoxColumn.Width = 42;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            nameDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            nameDataGridViewTextBoxColumn.HeaderText = "Albüm Adı";
+            nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            nameDataGridViewTextBoxColumn.ReadOnly = true;
+            nameDataGridViewTextBoxColumn.Width = 5;
+            // 
+            // singersDataGridViewTextBoxColumn
+            // 
+            singersDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            singersDataGridViewTextBoxColumn.DataPropertyName = "Singers";
+            singersDataGridViewTextBoxColumn.HeaderText = "Şarkıcı Adı";
+            singersDataGridViewTextBoxColumn.Name = "singersDataGridViewTextBoxColumn";
+            singersDataGridViewTextBoxColumn.ReadOnly = true;
+            singersDataGridViewTextBoxColumn.Width = 5;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            priceDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            priceDataGridViewTextBoxColumn.HeaderText = "Fiyat";
+            priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            priceDataGridViewTextBoxColumn.ReadOnly = true;
+            priceDataGridViewTextBoxColumn.Width = 57;
+            // 
+            // discountDataGridViewTextBoxColumn
+            // 
+            discountDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            discountDataGridViewTextBoxColumn.DataPropertyName = "Discount";
+            discountDataGridViewTextBoxColumn.HeaderText = "İndirim";
+            discountDataGridViewTextBoxColumn.Name = "discountDataGridViewTextBoxColumn";
+            discountDataGridViewTextBoxColumn.ReadOnly = true;
+            discountDataGridViewTextBoxColumn.Width = 70;
+            // 
+            // ısActiveDataGridViewCheckBoxColumn
+            // 
+            ısActiveDataGridViewCheckBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            ısActiveDataGridViewCheckBoxColumn.DataPropertyName = "IsActive";
+            ısActiveDataGridViewCheckBoxColumn.HeaderText = "Durumu";
+            ısActiveDataGridViewCheckBoxColumn.Name = "ısActiveDataGridViewCheckBoxColumn";
+            ısActiveDataGridViewCheckBoxColumn.ReadOnly = true;
+            ısActiveDataGridViewCheckBoxColumn.Width = 57;
+            // 
+            // publishedDateDataGridViewTextBoxColumn
+            // 
+            publishedDateDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            publishedDateDataGridViewTextBoxColumn.DataPropertyName = "PublishedDate";
+            publishedDateDataGridViewTextBoxColumn.HeaderText = "Yayınlanma Tarihi";
+            publishedDateDataGridViewTextBoxColumn.Name = "publishedDateDataGridViewTextBoxColumn";
+            publishedDateDataGridViewTextBoxColumn.ReadOnly = true;
+            publishedDateDataGridViewTextBoxColumn.Width = 5;
+            // 
+            // createdDateDataGridViewTextBoxColumn
+            // 
+            createdDateDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            createdDateDataGridViewTextBoxColumn.DataPropertyName = "CreatedDate";
+            createdDateDataGridViewTextBoxColumn.HeaderText = "Oluşturulma Tarihi";
+            createdDateDataGridViewTextBoxColumn.Name = "createdDateDataGridViewTextBoxColumn";
+            createdDateDataGridViewTextBoxColumn.ReadOnly = true;
+            createdDateDataGridViewTextBoxColumn.Width = 5;
+            // 
+            // updatedDateDataGridViewTextBoxColumn
+            // 
+            updatedDateDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            updatedDateDataGridViewTextBoxColumn.DataPropertyName = "UpdatedDate";
+            updatedDateDataGridViewTextBoxColumn.HeaderText = "Güncellenme Tarihi";
+            updatedDateDataGridViewTextBoxColumn.Name = "updatedDateDataGridViewTextBoxColumn";
+            updatedDateDataGridViewTextBoxColumn.ReadOnly = true;
+            updatedDateDataGridViewTextBoxColumn.Width = 5;
+            // 
+            // deletedDateDataGridViewTextBoxColumn
+            // 
+            deletedDateDataGridViewTextBoxColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            deletedDateDataGridViewTextBoxColumn.DataPropertyName = "DeletedDate";
+            deletedDateDataGridViewTextBoxColumn.HeaderText = "Silinme Tarihi";
+            deletedDateDataGridViewTextBoxColumn.Name = "deletedDateDataGridViewTextBoxColumn";
+            deletedDateDataGridViewTextBoxColumn.ReadOnly = true;
+            deletedDateDataGridViewTextBoxColumn.Width = 5;
+            // 
             // AlbumPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -215,6 +330,7 @@
             Text = "AlbumPage";
             Load += AlbumPage_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAlbums).EndInit();
+            ((System.ComponentModel.ISupportInitialize)albumModelBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -236,5 +352,16 @@
         private Button btnUpdate;
         private Button btnReports;
         private DateTimePicker dtpPublishedDate;
+        private BindingSource albumModelBindingSource;
+        private DataGridViewTextBoxColumn ıdDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn singersDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn discountDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn ısActiveDataGridViewCheckBoxColumn;
+        private DataGridViewTextBoxColumn publishedDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn createdDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn updatedDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn deletedDateDataGridViewTextBoxColumn;
     }
 }
