@@ -34,6 +34,9 @@
     <None Update="Images\LoginPage.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Images\ReportPage.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Images\SignUpPage.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

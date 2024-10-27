@@ -20,7 +20,6 @@ namespace RecordStore.DAL.Repositories.Concrete
             _context = dbContext;
         }
       
-
         protected virtual void Dispose(bool disposing)
         {
             if (!this.disposed)

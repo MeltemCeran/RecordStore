@@ -1,4 +1,5 @@
-﻿using RecordStore.BLL.Managers.Concrete;
+﻿using RecordStore.BLL.Managers.Abstract;
+using RecordStore.BLL.Managers.Concrete;
 using RecordStore.BLL.Models.Concrete;
 using RecordStore.DAL.Entities.Concrete;
 using RecordStore.DAL.Services.Concrete;
@@ -17,17 +18,19 @@ namespace RecordStore.PL
 {
     public partial class ReportsPage : Form
     {
-        public ReportsPage()
+        private readonly IReportManager _reportManager;
+        public ReportsPage(IReportManager reportManager)
         {
             InitializeComponent();
+            _reportManager = reportManager;
         }
         public void GetInActiveAlbumsForm()
         {
-            var unitOfWork = new UnitOfWork();
+            dgvQuery1.DataSource = _reportManager.TakeInActiveAlbums();
+            dgvQuery2.DataSource = _reportManager.TakeActiveAlbums();
+            dgvQuery3.DataSource = _reportManager.TakeDiscountedAlbums();
+            dgvQuery4.DataSource = _reportManager.TakeLastAddedAlbums();
 
-
-            dgvQuery1.DataSource = unitOfWork.Albums.InActiveAlbums;
-                  
         }
         private void ReportsPage_Load(object sender, EventArgs e)
         {

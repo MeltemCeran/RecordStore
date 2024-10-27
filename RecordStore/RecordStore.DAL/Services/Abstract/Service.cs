@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace RecordStore.DAL.Services.Abstract
 {
-    public class Service<TModel, TEntity> : IDisposable, IService<TModel>
+    public abstract class Service<TModel, TEntity> : IDisposable, IService<TModel>
 
         where TModel : class
         where TEntity : BaseEntity

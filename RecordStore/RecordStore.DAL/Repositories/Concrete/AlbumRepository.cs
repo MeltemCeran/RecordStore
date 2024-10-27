@@ -19,14 +19,12 @@ namespace RecordStore.DAL.Repositories.Concrete
         {
             _context = dbContext;
         }
-
         public ICollection<Album> InActiveAlbums()
         {
             IQueryable<Album> query = _entities.Select(a => new Album { Name = a.Name, Singers = a.Singers, IsActive = a.IsActive })
                 .Where(a => !a.IsActive);
             return query.ToList();
         }
-
 
         public ICollection<Album> ActiveAlbums()
 

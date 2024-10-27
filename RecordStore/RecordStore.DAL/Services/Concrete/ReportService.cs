@@ -1,8 +1,6 @@
-﻿using RecordStore.BLL.Managers.Abstract;
-using RecordStore.BLL.Models.Concrete;
+﻿using Microsoft.EntityFrameworkCore;
 using RecordStore.DAL.Entities.Concrete;
 using RecordStore.DAL.Services.Abstract;
-using RecordStore.DAL.Services.Concrete;
 using RecordStore.DAL.UnitOfWorks;
 using System;
 using System.Collections.Generic;
@@ -10,14 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RecordStore.BLL.Managers.Concrete
+namespace RecordStore.DAL.Services.Concrete
 {
-    public class AlbumManager : Manager<AlbumModel, AlbumService<AlbumModel>>
+    public class ReportService : IReportService
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        //Buraya Constructor gelmeli mi?
 
+        public ReportService(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
         public ICollection<Album> GetInActiveAlbums()
         {
             return _unitOfWork.Albums.InActiveAlbums();
@@ -32,10 +33,10 @@ namespace RecordStore.BLL.Managers.Concrete
         {
             return _unitOfWork.Albums.LastAddedTenAlbums();
         }
-        public ICollection<Album> GetDiscountByAlbum()
+
+        public ICollection<Album> GetDiscountedAlbums()
         {
             return _unitOfWork.Albums.DiscountByAlbum();
         }
-
     }
 }

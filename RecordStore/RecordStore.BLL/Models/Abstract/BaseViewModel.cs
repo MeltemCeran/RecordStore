@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RecordStore.BLL.Models.Abstract
 {
-    public class BaseViewModel
+    public abstract class BaseViewModel
     {
         public int Id { get; set; }
         public DateTime CreatedDate { get; set; }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RecordStore.DAL.Repositories.Abstract
 {
-    public class Repository<TEntity>: IRepository<TEntity> where TEntity : BaseEntity
+    public abstract class Repository<TEntity>: IRepository<TEntity> where TEntity : BaseEntity
     {
         private protected DbContext _dbContext;
         private protected DbSet<TEntity> _entities;

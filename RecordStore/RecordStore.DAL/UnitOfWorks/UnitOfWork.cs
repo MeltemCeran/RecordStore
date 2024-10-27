@@ -13,7 +13,7 @@ namespace RecordStore.DAL.UnitOfWorks
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private DbContext _dbContext;
+        private protected DbContext _dbContext;
         private bool disposed = false;
 
         public UnitOfWork(DbContext dbContext)

@@ -16,8 +16,8 @@ namespace RecordStore.DAL.Context
         public DbSet<Album> Albums { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string[] server = { "DESKTOP-QJIAQ3L", "LAPTOP-3HH2461E", "DESKTOP-M590E2O\\SAMETLESSON" , "DILA\\AYDANPERSONALSVR" };
-            string connectionString = $"Data Source={server[2]};Database=RecordStoreDb;Trusted_Connection=True;Encrypt=No";
+            string[] server = { "DESKTOP-QJIAQ3L", "LAPTOP-3HH2461E", "DESKTOP-M590E2O\\SAMETLESSON", "DILA\\AYDANPERSONALSVR" };
+            string connectionString = $"Data Source={server[1]};Database=RecordStoreDb;Trusted_Connection=True;Encrypt=No";
             optionsBuilder.UseSqlServer(connectionString);
         }
 
@@ -137,24 +137,24 @@ namespace RecordStore.DAL.Context
                 },
 
                 new Album
-                  {
-                     Id = 6,
+                {
+                    Id = 6,
+                    Name = "Ankaranın Ayazı",
+                    Singers = "Ankaranın Bağları",
+                    PublishedDate = new DateOnly(2024, 11, 22),
+                    CreatedDate = new DateTime(2024, 5, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                    Price = 500,
+                    IsActive = true
+                },
+                 new Album
+                 {
+                     Id = 7,
                      Name = "Ankaranın Ayazı",
                      Singers = "Ankaranın Bağları",
                      PublishedDate = new DateOnly(2024, 11, 22),
-                     CreatedDate = new DateTime(2024, 5, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                     CreatedDate = new DateTime(2024, 4, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
                      Price = 500,
                      IsActive = true
-                  },
-                 new Album
-                     {
-                         Id = 7,
-                         Name = "Ankaranın Ayazı",
-                         Singers = "Ankaranın Bağları",
-                         PublishedDate = new DateOnly(2024, 11, 22),
-                         CreatedDate = new DateTime(2024, 4, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                         Price = 500,
-                         IsActive = true
                  },
                  new Album
                  {
@@ -189,12 +189,12 @@ namespace RecordStore.DAL.Context
                  new Album
                  {
                      Id = 11,
-                 Name = "Ankaranın Ayazı",
-                 Singers = "Ankaranın Bağları",
-                 PublishedDate = new DateOnly(2024, 11, 22),
-                 CreatedDate = new DateTime(2024, 6, 10, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                 Price = 500,
-                 IsActive = true
+                     Name = "Ankaranın Ayazı",
+                     Singers = "Ankaranın Bağları",
+                     PublishedDate = new DateOnly(2024, 11, 22),
+                     CreatedDate = new DateTime(2024, 6, 10, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                     Price = 500,
+                     IsActive = true
                  },
                  new Album
                  {
@@ -223,56 +223,51 @@ namespace RecordStore.DAL.Context
                       IsActive = false
 
                   },
-                      new Album
-                      {
-                          Id = 14,
+                  new Album
+                  {
+                      Id = 14,
 
-                          Name = "Sametten Nameler",
+                      Name = "Sametten Nameler",
 
-                          Singers = "Samet",
+                      Singers = "Samet",
 
-                          PublishedDate = new DateOnly(2024, 10, 26),
-                          CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                          Price = 100,
-                          Discount = 0.80,
-                          IsActive = true
+                      PublishedDate = new DateOnly(2024, 10, 26),
+                      CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                      Price = 100,
+                      Discount = 0.80,
+                      IsActive = true
 
-                      },
-                          new Album
-                          {
-                              Id = 15,
+                  },
+                  new Album
+                  {
+                      Id = 15,
 
-                              Name = "Sametten Nameler",
+                      Name = "Sametten Nameler",
 
-                              Singers = "Samet",
+                      Singers = "Samet",
 
-                              PublishedDate = new DateOnly(2024, 10, 26),
-                              CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                              Price = 100,
+                      PublishedDate = new DateOnly(2024, 10, 26),
+                      CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                      Price = 100,
 
-                              IsActive = false
+                      IsActive = false
 
-                          },
-                              new Album
-                              {
-                                  Id = 16,
+                  },
+                  new Album
+                  {
+                      Id = 16,
 
-                                  Name = "Sametten Nameler",
+                      Name = "Sametten Nameler",
 
-                                  Singers = "Samet",
+                      Singers = "Samet",
 
-                                  PublishedDate = new DateOnly(2024, 10, 26),
-                                  CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
-                                  Price = 100,
+                      PublishedDate = new DateOnly(2024, 10, 26),
+                      CreatedDate = new DateTime(2024, 10, 11, 11, 43, 11, 412, DateTimeKind.Local).AddTicks(5286),
+                      Price = 100,
 
-                                  IsActive = false
+                      IsActive = false
 
-                              }
-
-
-
-
-
+                  }
             );
 
         }

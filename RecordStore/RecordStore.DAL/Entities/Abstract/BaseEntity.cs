@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RecordStore.DAL.Entities.Abstract
 {
-    public class BaseEntity
+    public abstract class BaseEntity
     {
         public int Id { get; set; }
         public DateTime CreatedDate { get; set; }
