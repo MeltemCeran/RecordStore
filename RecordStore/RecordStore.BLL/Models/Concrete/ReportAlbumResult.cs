@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RecordStore.BLL.Models.Abstract
+namespace RecordStore.BLL.Models.Concrete
 {
-    public abstract class ReportAlbumResult
+    public class ReportAlbumResult
     {
         public int Id { get; set; }
         public string Name { get; set; }

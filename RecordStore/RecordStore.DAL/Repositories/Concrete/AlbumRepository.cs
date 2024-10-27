@@ -28,18 +28,15 @@ namespace RecordStore.DAL.Repositories.Concrete
         public ICollection<Album> ActiveAlbums()
 
         {
-            IQueryable<Album> query = _entities.Select(a => new Album { Name = a.Name, Singers = a.Singers, IsActive = a.IsActive })
-                .Where(a => a.IsActive);
+            IQueryable<Album> query = _entities.Where(a => a.IsActive);
             return query.ToList();
         }
 
         public ICollection<Album> LastAddedTenAlbums()
         {
-            IQueryable<Album> query = _entities.OrderByDescending(a => a.Id).Take(10)
-                .Select(a => new Album { Id = a.Id, Name = a.Name, Singers = a.Singers });
+            IQueryable<Album> query = _entities.OrderByDescending(a => a.Id).Take(10);
 
             return query.ToList();
-
         }
         public ICollection<Album> DiscountByAlbum()
         {

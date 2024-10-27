@@ -1,4 +1,5 @@
-﻿using RecordStore.DAL.Entities.Concrete;
+﻿using RecordStore.BLL.Models.Concrete;
+using RecordStore.DAL.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace RecordStore.BLL.Managers.Abstract
 {
     public interface IReportManager
     {
-        ICollection<Album> TakeActiveAlbums();
-        ICollection<Album> TakeInActiveAlbums();
-        ICollection<Album> TakeLastAddedAlbums();
-        ICollection<Album> TakeDiscountedAlbums();
+        ICollection<IsActiveAlbumReport> TakeActiveAlbums();
+        ICollection<IsActiveAlbumReport> TakeInActiveAlbums();
+        ICollection<ReportAlbumResult> TakeLastAddedAlbums();
+        ICollection<DiscountedAlbumReport> TakeDiscountedAlbums();
     }
 }
