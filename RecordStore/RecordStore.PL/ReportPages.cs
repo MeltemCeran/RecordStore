@@ -31,5 +31,11 @@ namespace RecordStore.PL
         {
             GetInActiveAlbumsForm();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            AlbumPage albumPage = new AlbumPage();
+            albumPage.ShowDialog();
+        }
     }
 }

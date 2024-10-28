@@ -35,6 +35,7 @@
             txtPassword = new TextBox();
             btnSignUp = new Button();
             btnLogin = new Button();
+            btnClose = new Button();
             SuspendLayout();
             // 
             // lblUserName
@@ -103,6 +104,16 @@
             btnLogin.UseVisualStyleBackColor = false;
             btnLogin.Click += btnLogin_Click;
             // 
+            // btnClose
+            // 
+            btnClose.BackgroundImage = Properties.Resources.close;
+            btnClose.Location = new Point(764, 12);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(24, 23);
+            btnClose.TabIndex = 7;
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
+            // 
             // LoginPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -110,6 +121,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnClose);
             Controls.Add(btnLogin);
             Controls.Add(btnSignUp);
             Controls.Add(txtPassword);
@@ -134,5 +146,6 @@
         private TextBox txtPassword;
         private Button btnSignUp;
         private Button btnLogin;
+        private Button btnClose;
     }
 }

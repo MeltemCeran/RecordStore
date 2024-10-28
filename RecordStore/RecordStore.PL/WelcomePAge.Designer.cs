@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WelcomePage));
             btnNext = new Button();
+            btnClose = new Button();
             SuspendLayout();
             // 
             // btnNext
@@ -46,6 +47,16 @@
             btnNext.UseVisualStyleBackColor = false;
             btnNext.Click += btnNext_Click;
             // 
+            // btnClose
+            // 
+            btnClose.BackgroundImage = Properties.Resources.close;
+            btnClose.Location = new Point(763, 12);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(25, 25);
+            btnClose.TabIndex = 2;
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
+            // 
             // WelcomePage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -53,6 +64,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnClose);
             Controls.Add(btnNext);
             FormBorderStyle = FormBorderStyle.None;
             Name = "WelcomePage";
@@ -64,5 +76,6 @@
         #endregion
 
         private Button btnNext;
+        private Button btnClose;
     }
 }

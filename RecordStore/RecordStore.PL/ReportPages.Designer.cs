@@ -55,6 +55,7 @@
             label3 = new Label();
             label4 = new Label();
             ısActiveAlbumReportBindingSource2 = new BindingSource(components);
+            btnBack = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvQuery1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ısActiveAlbumReportBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvQuery2).BeginInit();
@@ -75,7 +76,7 @@
             dgvQuery1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvQuery1.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn, singersDataGridViewTextBoxColumn, IsActiveStr });
             dgvQuery1.DataSource = ısActiveAlbumReportBindingSource;
-            dgvQuery1.Location = new Point(28, 155);
+            dgvQuery1.Location = new Point(29, 131);
             dgvQuery1.Name = "dgvQuery1";
             dgvQuery1.ReadOnly = true;
             dgvQuery1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -120,7 +121,7 @@
             dgvQuery2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvQuery2.Columns.AddRange(new DataGridViewColumn[] { nameDataGridViewTextBoxColumn1, singersDataGridViewTextBoxColumn1, ısActiveStrDataGridViewTextBoxColumn });
             dgvQuery2.DataSource = ısActiveAlbumReportBindingSource1;
-            dgvQuery2.Location = new Point(490, 155);
+            dgvQuery2.Location = new Point(491, 131);
             dgvQuery2.Name = "dgvQuery2";
             dgvQuery2.ReadOnly = true;
             dgvQuery2.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -165,7 +166,7 @@
             dgvQuery4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvQuery4.Columns.AddRange(new DataGridViewColumn[] { ıdDataGridViewTextBoxColumn1, nameDataGridViewTextBoxColumn3, singersDataGridViewTextBoxColumn3 });
             dgvQuery4.DataSource = reportAlbumResultBindingSource;
-            dgvQuery4.Location = new Point(490, 385);
+            dgvQuery4.Location = new Point(491, 361);
             dgvQuery4.Name = "dgvQuery4";
             dgvQuery4.ReadOnly = true;
             dgvQuery4.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -210,7 +211,7 @@
             dgvQuery3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvQuery3.Columns.AddRange(new DataGridViewColumn[] { ıdDataGridViewTextBoxColumn, nameDataGridViewTextBoxColumn2, singersDataGridViewTextBoxColumn2 });
             dgvQuery3.DataSource = discountedAlbumReportBindingSource;
-            dgvQuery3.Location = new Point(28, 385);
+            dgvQuery3.Location = new Point(29, 361);
             dgvQuery3.Name = "dgvQuery3";
             dgvQuery3.ReadOnly = true;
             dgvQuery3.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -251,7 +252,7 @@
             label1.BackColor = Color.Transparent;
             label1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label1.ForeColor = Color.WhiteSmoke;
-            label1.Location = new Point(28, 112);
+            label1.Location = new Point(29, 88);
             label1.Name = "label1";
             label1.Size = new Size(198, 31);
             label1.TabIndex = 4;
@@ -262,7 +263,7 @@
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label2.ForeColor = Color.WhiteSmoke;
-            label2.Location = new Point(490, 112);
+            label2.Location = new Point(491, 88);
             label2.Name = "label2";
             label2.Size = new Size(198, 31);
             label2.TabIndex = 5;
@@ -273,7 +274,7 @@
             label3.BackColor = Color.Transparent;
             label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label3.ForeColor = Color.WhiteSmoke;
-            label3.Location = new Point(28, 341);
+            label3.Location = new Point(29, 317);
             label3.Name = "label3";
             label3.Size = new Size(198, 31);
             label3.TabIndex = 6;
@@ -284,7 +285,7 @@
             label4.BackColor = Color.Transparent;
             label4.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
             label4.ForeColor = Color.WhiteSmoke;
-            label4.Location = new Point(490, 341);
+            label4.Location = new Point(491, 317);
             label4.Name = "label4";
             label4.Size = new Size(266, 31);
             label4.TabIndex = 7;
@@ -294,6 +295,20 @@
             // 
             ısActiveAlbumReportBindingSource2.DataSource = typeof(BLL.Models.Concrete.IsActiveAlbumReport);
             // 
+            // btnBack
+            // 
+            btnBack.BackColor = Color.Gainsboro;
+            btnBack.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            btnBack.ForeColor = Color.FromArgb(64, 0, 0);
+            btnBack.Location = new Point(795, 522);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(124, 39);
+            btnBack.TabIndex = 8;
+            btnBack.Text = "🔙";
+            btnBack.TextAlign = ContentAlignment.TopCenter;
+            btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += btnBack_Click;
+            // 
             // ReportPages
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -301,6 +316,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(945, 573);
+            Controls.Add(btnBack);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -353,5 +369,6 @@
         private DataGridViewTextBoxColumn ıdDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn singersDataGridViewTextBoxColumn2;
+        private Button btnBack;
     }
 }

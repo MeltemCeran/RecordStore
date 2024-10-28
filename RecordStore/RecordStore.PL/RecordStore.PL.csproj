@@ -31,6 +31,9 @@
     <None Update="Images\AlbumPage.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Images\close.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Images\LoginPage.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

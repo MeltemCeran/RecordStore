@@ -24,7 +24,7 @@ namespace RecordStore.PL
             InitializeComponent();
         }
 
-        
+
 
         public string sha256_hash(string sifre)
         {
@@ -65,7 +65,7 @@ namespace RecordStore.PL
                 }
                 else
                 {
-                     hassedPassword = sha256_hash(enteredPassword);
+                    hassedPassword = sha256_hash(enteredPassword);
                 }
 
                 // Şifrelerin eşleşme kontrolü
@@ -91,6 +91,11 @@ namespace RecordStore.PL
                 loginPage.ShowDialog();
             }
 
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -37,6 +37,7 @@
             txtPasswordAgaın = new TextBox();
             btnSignUp = new Button();
             label1 = new Label();
+            btnClose = new Button();
             SuspendLayout();
             // 
             // lblUserName
@@ -112,11 +113,21 @@
             // label1
             // 
             label1.BackColor = Color.Transparent;
-            label1.Location = new Point(579, 25);
+            label1.Location = new Point(579, 35);
             label1.Name = "label1";
-            label1.Size = new Size(209, 133);
+            label1.Size = new Size(209, 123);
             label1.TabIndex = 10;
             label1.Text = resources.GetString("label1.Text");
+            // 
+            // btnClose
+            // 
+            btnClose.BackgroundImage = Properties.Resources.close;
+            btnClose.Location = new Point(775, 0);
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(24, 23);
+            btnClose.TabIndex = 11;
+            btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
             // SignUpPage
             // 
@@ -125,6 +136,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnClose);
             Controls.Add(label1);
             Controls.Add(btnSignUp);
             Controls.Add(txtPasswordAgaın);
@@ -152,5 +164,6 @@
         private TextBox txtPasswordAgaın;
         private Button btnSignUp;
         private Label label1;
+        private Button btnClose;
     }
 }

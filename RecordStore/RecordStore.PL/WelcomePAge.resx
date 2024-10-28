@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!--
-    Microsoft ResX Schema
+    Microsoft ResX Schema 
 
     Version 2.0
 
@@ -48,7 +48,7 @@
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-
+    
     mimetype: application/x-microsoft.net.object.soap.base64
     value   : The object must be serialized with
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
@@ -121,7 +121,7 @@
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAB4AAAAQ4CAIAAABnsVYUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAA/7JJREFUeF7s/Qe4VfWd6P/f329aZuZmMpOZWJB+6j67l9V7r7u30yuH3qs0EVER
+        vwAADr8BOAVTJAAA/7JJREFUeF7s/Qe4VfWd6P/f329aZuZmMpOZWJB+6j67l9V7r7u30yuH3qs0EVER
         C0oRQUVABEWqCEiTJtJ7r4d26Nhi2sy9ufnvA878/e07hUxMovGznlfWs84++7v22kueJ/HNN9/1Pz65
         ehEAAO7TlXPHV747b2SPmnpbSPFIuUJU60y3mNKQkpa//fKJA3vOnzwwYfxAmSzVsFLc2YFwFXChMgX3
         xiWswuTrokqlxadNNqUxKYWpj8o902q9xTRFhLiARgVcJnwqGUjIZHlcfm/95o/3bV67YaopOQKlj7iL

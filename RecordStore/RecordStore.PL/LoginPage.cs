@@ -40,25 +40,25 @@ namespace RecordStore.PL
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-          string userName = txtUserName.Text;
-          string userPassword = txtPassword.Text;
-          string hassedPassword = sha256_hash(userPassword);
+            string userName = txtUserName.Text;
+            string userPassword = txtPassword.Text;
+            string hassedPassword = sha256_hash(userPassword);
             bool correct = false;
-            
-            using(UserManager userManager = new UserManager(_unitOfWork))
+
+            using (UserManager userManager = new UserManager(_unitOfWork))
             {
                 var userModels = userManager.GetAll().ToList();
 
                 foreach (var userModel in userModels)
-                { 
-                    if(hassedPassword == userModel.Password && userName == userModel.UserName)
+                {
+                    if (hassedPassword == userModel.Password && userName == userModel.UserName)
                     {
                         correct = true;
                         AlbumPage albumPage = new AlbumPage();
                         albumPage.ShowDialog();
                         return;
                     }
-                  
+
                 }
 
                 if (correct == false)
@@ -66,6 +66,11 @@ namespace RecordStore.PL
                     MessageBox.Show("Hatalı giriş");
                 }
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
